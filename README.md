@@ -1,2 +1,2 @@
-# GeneticAlgorithm
-Genetic algorithm to generate the sentence "To be or not to be."
+# Genetic Algorithm
+Genetic algorithm template to generate the sentence "To be or not to be."
