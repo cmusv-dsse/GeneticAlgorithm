@@ -27,7 +27,7 @@ class Individual:
         genes = []
 
         for i in range(size):
-            genes.append(random.choice(string.ascii_letters))
+            genes.append(random.choice(string.printable))
 
         return genes
 
