@@ -18,6 +18,10 @@ class Population:
         self.average_fitness = 0.0
         self.mating_pool = []
 
+        self.create_initial_population(size, target)
+
+    # Create a initial population randomly
+    def create_initial_population(self, size, target):
         for i in range(size + 1):
             ind = Individual(len(target))
             ind.calc_fitness(target)
@@ -27,12 +31,11 @@ class Population:
 
             self.average_fitness += ind.fitness
             self.population.append(ind)
-
         self.average_fitness /= size
 
     def print_population_status(self):
-        print("\nPopulation " + str(self.generations))
-        print("Average fitness: " + str(self.average_fitness))
+        print("\nGeneration " + str(self.generations))
+        print("Population Average fitness: " + str(self.average_fitness))
         print("Best individual: " + str(self.best_ind))
 
     # Generate a mating pool according to the probability of each individual

@@ -11,17 +11,6 @@ class Individual:
         self.fitness = 0
         self.genes = self.generate_random_genes(size)
 
-    # Fitness function: returns a floating points of "correct" characters
-    def calc_fitness(self, target):
-        score = 0
-
-        # insert your logic to calculate the individual fitness here
-
-        self.fitness = score
-
-    def __repr__(self):
-        return ''.join(self.genes) + " -> fitness: " + str(self.fitness)
-
     @staticmethod
     def generate_random_genes(size):
         genes = []
@@ -30,6 +19,17 @@ class Individual:
             genes.append(random.choice(string.printable))
 
         return genes
+
+    def __repr__(self):
+        return ''.join(self.genes) + " -> fitness: " + str(self.fitness)
+
+    # Fitness function: returns a floating points of "correct" characters
+    def calc_fitness(self, target):
+        score = 0
+
+        # insert your logic to calculate the individual fitness here
+
+        self.fitness = score
 
     # The crossover function selects pairs of individuals to be mated, generating a third individual (child)
     def crossover(self, partner):
