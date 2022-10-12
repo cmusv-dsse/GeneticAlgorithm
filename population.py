@@ -1,5 +1,4 @@
 from individual import Individual
-import random
 
 
 class Population:
@@ -19,7 +18,7 @@ class Population:
         self.average_fitness = 0.0
         self.mating_pool = []
 
-        for i in range(size):
+        for i in range(size + 1):
             ind = Individual(len(target))
             ind.calc_fitness(target)
 
@@ -38,11 +37,13 @@ class Population:
 
     # Generate a mating pool according to the probability of each individual
     def natural_selection(self):
-        # Implementation suggestion based on Lab 3:
-        # Based on fitness, each member will get added to the mating pool a certain number of times
-        # a higher fitness = more entries to mating pool = more likely to be picked as a parent
-        # a lower fitness = fewer entries to mating pool = less likely to be picked as a parent
-        pass
+        """
+            Implementation suggestion based on Lab:
+            Based on fitness, each member will get added to the mating pool a certain number of times.
+                a higher fitness = more entries to mating pool = more likely to be picked as a parent
+                a lower fitness = fewer entries to mating pool = less likely to be picked as a parent
+            pass
+        """
 
     # Generate the new population based on the natural selection function
     def generate_new_population(self):

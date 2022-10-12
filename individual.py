@@ -15,7 +15,7 @@ class Individual:
     def calc_fitness(self, target):
         score = 0
 
-        # insert your code to calculate the individual fitness here
+        # insert your logic to calculate the individual fitness here
 
         self.fitness = score
 
