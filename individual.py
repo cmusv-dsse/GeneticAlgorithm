@@ -7,9 +7,10 @@ class Individual:
         Individual in the population
     """
 
-    def __init__(self, size):
+    def __init__(self, target):
         self.fitness = 0
-        self.genes = self.generate_random_genes(size)
+        self.genes = self.generate_random_genes(len(target))
+        self.calc_fitness(target)
 
     @staticmethod
     def generate_random_genes(size):

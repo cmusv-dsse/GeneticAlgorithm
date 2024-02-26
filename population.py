@@ -6,15 +6,15 @@ class Population:
         A class that describes a population of virtual individuals
     """
 
-    def __init__(self, target, size, mutation_rate):
+    def __init__(self, size, mutation_rate, target):
         self.population = []
+        self.size = size
         self.generations = 0
         self.target = target
         self.mutation_rate = mutation_rate
-        self.best_ind = None
+        self.best_ind = Individual(target)
         self.finished = False
         self.perfect_score = 1.0
-        self.max_fitness = 0.0
         self.average_fitness = 0.0
         self.mating_pool = []
 
@@ -23,11 +23,11 @@ class Population:
     # Create a initial population randomly
     def create_initial_population(self, size, target):
         for i in range(size + 1):
-            ind = Individual(len(target))
+            ind = Individual(self.target)
             ind.calc_fitness(target)
 
-            if ind.fitness > self.max_fitness:
-                self.max_fitness = ind.fitness
+            if ind.fitness > self.best_ind.fitness:
+                self.best_ind.fitness = ind.fitness
 
             self.average_fitness += ind.fitness
             self.population.append(ind)
@@ -38,8 +38,9 @@ class Population:
         print("Population Average fitness: " + str(self.average_fitness))
         print("Best individual: " + str(self.best_ind))
 
-    # Generate a mating pool according to the probability of each individual
-    def natural_selection(self):
+    # Evolve population applying natural selection
+    def evolve(self):
+        # Generate a mating pool according to the probability of each individual
         """
             Implementation suggestion based on Lab:
             Based on fitness, each member will get added to the mating pool a certain number of times.
@@ -52,6 +53,10 @@ class Population:
     def generate_new_population(self):
         pass
 
+    # Select two individuals for crossover
+    def _selection(self):
+        pass
+
     # Compute/Identify the current "most fit" individual within the population
-    def evaluate(self):
+    def _evaluate_offspring(self):
         pass

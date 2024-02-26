@@ -6,7 +6,7 @@ def main():
     target = "To be or not to be."
     mutation_rate = 0.01
 
-    pop = Population(target, pop_size, mutation_rate)
+    pop = Population(pop_size, mutation_rate, target)
 
     # you don't need to call this function when the ones right bellow are fully implemented
     pop.print_population_status()
@@ -15,9 +15,7 @@ def main():
     Uncomment these lines bellow when you implement all the functions
     
     while not pop.finished:
-        pop.natural_selection()
-        pop.generate_new_population()
-        pop.evaluate()
+        pop.evolve()
         pop.print_population_status()
     """
 
