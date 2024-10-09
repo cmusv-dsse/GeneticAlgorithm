@@ -24,7 +24,7 @@ class Individual:
     def __repr__(self):
         return ''.join(self.genes) + " -> fitness: " + str(self.fitness)
 
-    # Fitness function: returns a floating points of "correct" characters
+    # Fitness function: returns a floating points of "correct/matching" characters
     def calc_fitness(self, target):
         score = 0
 
@@ -35,8 +35,7 @@ class Individual:
     # The crossover function selects pairs of individuals to be mated, generating a third individual (child)
     def crossover(self, partner):
         # Crossover suggestion: child with half genes from one parent and half from the other parent
-        ind_len = len(self.genes)
-        child = Individual(ind_len)
+        child = Individual(self.genes)
 
         return child
 
@@ -45,5 +44,5 @@ class Individual:
         # code to mutate the individual here
         pass
 
-
-
+    def __str__(self):
+        return ''.join(self.genes) + " -> fitness: " + str(self.fitness)
